@@ -39,12 +39,21 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    const result = playRound(humanChoice, computerChoice);
+    console.log(result);
+  }
 
-function playGame(playRound) {
-  const result = playRound(humanChoice, computerChoice);
-  console.log(result);
-  console.log(humanScore);
-  console.log(computerScore);
+  if (humanScore > computerScore) {
+    return "Human wins";
+  } else if (computerScore > humanScore) {
+    return "Computer wins";
+  } else {
+    return "Tie";
+  }
 }
+const gameResult = playGame();
+console.log(gameResult);
